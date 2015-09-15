@@ -33,7 +33,7 @@ func TestGenerateRSAKeys(t *testing.T) {
 	if !strings.HasPrefix(priv, "-----BEGIN RSA PRIVATE KEY-----") {
 		t.Errorf("Improper private key: %s", priv)
 	}
-	if !strings.HasPrefix(pub, "-----BEGIN PUBLIC KEY-----") {
+	if strings.HasPrefix(pub, "-----BEGIN PUBLIC KEY-----") == false || strings.HasPrefix(pub, "-----BEGIN RSA PUBLIC KEY-----") == false {
 		t.Errorf("Improper public key: %s", pub)
 	}
 }
